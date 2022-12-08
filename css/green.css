@@ -1,0 +1,30 @@
+#dbimg1{
+    background: url(/img/1643630165731.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 155px;
+}
+#dbimgcont{
+   max-width:100% !important;
+}
+#dbimgcont h3{
+    color: rgb(209, 55, 55);
+    text-align: center;
+    padding-top: 8%;
+    font-size: 3rem;
+}
+.ucardinfo{
+    display: inline-flexbox;
+    position:relative;
+    left: 31rem;
+    bottom: 8rem;
+
+
+}
+.sidebar-positionset{
+
+
+}
+.bgcolor-white{
+    background-color: white;
+}
