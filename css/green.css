@@ -28,3 +28,14 @@
 .bgcolor-white{
     background-color: white;
 }
+.side-list-it{
+    background-color:#ffff;
+    margin-top: 3rem;
+    list-style: none;
+}
+.sidebar-logo{
+    margin-top: 7rem;
+}
+#side-nav{
+    margin-top: 4rem !important;
+}
