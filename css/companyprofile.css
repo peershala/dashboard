@@ -1,0 +1,30 @@
+
+
+
+
+.container-fluid{
+    margin-top: 10px;
+}
+
+.cards{
+    border-radius: 20px;
+   background-color: rgb(216, 186, 255);
+   height: 20vw;
+   width: 50vh;
+}
+
+.heading{
+    color:black ;
+}
+.answer{
+    color: rgb(81, 80, 80);
+}
+.needhelp{
+    text-align: center;
+
+    margin-top: 70px;
+}
+
+.btn-primary{
+    border-radius: 20px;
+}
