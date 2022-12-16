@@ -1,5 +1,5 @@
 #dbimg1{
-    background: url(../img/1643630165731.jpg);
+    background: url(../img/Rectangle\ 39.png);
     background-size: cover;
     background-repeat: no-repeat;
     height: 155px;
@@ -35,6 +35,31 @@
 }
 .sidebar-logo{
     margin-top: 7rem;
+}
+.sidebar-toggle-bk{
+    background-color: grey !important;
+    margin-top: 2rem;
+
+}
+.card-row-cont{
+    margin-top: 5rem;
+    margin-bottom: 2.4rem;
+}
+.intern-info-cards{
+    margin: 2rem;
+    width: 40%;
+}
+.dbimg-position{
+    margin-top: 0.5rem;
+}
+.banner-txt{
+    text-align: center;
+    font-size: 2rem;
+    color: #ffff;
+    position: relative;
+    left: 24%;
+    top: 42px;
+    display: flex;
 }
 #side-nav{
     margin-top: 4rem !important;
