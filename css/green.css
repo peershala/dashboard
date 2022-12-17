@@ -1,5 +1,5 @@
 #dbimg1{
-    background: url(img\1643630165731.jpg);
+    background-image: url(img\1643630165731.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     height: 155px;
@@ -29,6 +29,17 @@
     background-color:#ffff;
     margin-top: 3rem;
     list-style: none;
+    
+}
+.side-list-it a span {
+    background-color:#ffff;
+    color: grey;
+    margin-top: 3rem;
+    list-style: none;
+    
+}
+.side-list-it a {
+   text-decoration: none;
     
 }
 .sidebar-logo{

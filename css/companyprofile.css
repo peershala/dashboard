@@ -1,5 +1,44 @@
 
 
+#dbimg1{
+    background-image: url(C:\Users\DIVYANSH\Documents\GitHub\dashboard\img\1643630165731.jpg);
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    height: 155px;
+}
+#dbimgcont{
+   max-width:100% !important;
+}
+#dbimgcont h3{
+    color: rgb(209, 55, 55);
+    text-align: center;
+   
+    font-size: 3rem;
+}
+/* .ucardinfo{
+    display: inline-flexbox;
+    position:relative;
+    left: 31rem;
+    bottom: 8rem;
+
+
+} */
+
+.bgcolor-white{
+    background-color: white;
+}
+.side-list-it{
+    background-color:#ffff;
+    margin-top: 3rem;
+    list-style: none;
+    
+}
+.sidebar-logo{
+    margin-top: 7rem;
+}
+#side-nav{
+    margin-top: 4rem !important;
+}
 
 
 .container-fluid{
@@ -11,7 +50,7 @@
    background-color: rgb(216, 186, 255);
    height: 20vw;
    width: 50vh;
-   
+
 }
 
 .heading{
