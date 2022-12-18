@@ -1,3 +1,7 @@
+a{
+    text-decoration: none !important;
+    color: black !important;
+}
 #dbimg1{
     background: url(../img/Rectangle\ 39.png);
     background-size: cover;
