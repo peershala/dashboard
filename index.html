@@ -43,30 +43,33 @@
             <!-- Nav Item - Dashboard -->
           <ul id="side-nav">
            
-            <li class="side-list-it">
-                <a href="#"></a>
+            <li class="side-list-it ">
+                <a href="#">
                 <i class="fas fa-user"></i>
-                <span>Home</span>
+                <span>My Profile</span></a>
                </li>
     
                <li class="side-list-it">
-                <a href="#"></a>
+                <a href="#">
                 <i class="fas fa-users"></i>
-                <span>My Team</span>
+                <span>My Team</span></a>
                </li>
     
                <li class="side-list-it">
-                <a href="#"></a>
+                <a href="../dashboard/achievement.html">
                 <i class="fas fa-trophy"></i>
-                <span>Achivement</span>
+                <span>Achivement</span></a>
                </li>
     
                <li class="side-list-it">
-                <a href="#"></a>
+                <a href="#" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-fw fa-sign-out-alt"></i>
-                <span>Log-Out</span>
+                <span>Log-Out</span></a>
                </li>
           </ul>
+          <div class="text-center d-none d-md-inline ">
+            <button class="rounded-circle border-0 sidebar-toggle-bk" id="sidebarToggle"></button>
+        </div>
         </ul>
         <!-- End of Sidebar -->
 
@@ -84,28 +87,7 @@
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
+                        
 
                 
 
@@ -114,92 +96,48 @@
 
 
                         <!-- Area Chart -->
-                        <div class="col-xl-8 col-lg-7" id="dbimgcont">
+                        <div class="col-xl-8 col-lg-7 dbimg-position" id="dbimgcont">
                             <div class="card shadow mb-4">
                               
                                 <!-- Card Body -->
                                 <div class="card-body"id="dbimg1">
-                                    <div class="chart-area" >
-                                        
+                                    <div class="" >
+                                        <span class="banner-txt">Experiance a new Way of Learning!!</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                       
-                    </div>
+           
 
                     <!-- Content Row -->
-                    <div class="row">
+                    <div class="row card-row-cont">
 
-                       
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="card shadow mb-4 intern-info-cards">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-grey">Name</h6>
+                            <h4 class="text-dark">Vinay Chitade</h4>
+                            <h6 class="m-0 font-weight-bold text-grey">Email</h6>
+                            <h4 class="text-dark">Vinay@sociovative.org</h4>
+                            <h6 class="m-0 font-weight-bold text-gery">College Name</h6>
+                            <h4 class="text-dark">Rajarshi Shahu Mahavidyalaya</h4>
                         </div>
+                    </div>
 
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="card shadow mb-4 intern-info-cards">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-grey">Mentor Name</h6>
+                            <h4 class="text-dark">Sudip das</h4>
+                            <h6 class="m-0 font-weight-bold text-grey">Course Name</h6>
+                            <h4 class="text-dark">web intern</h4>
+                            <h6 class="m-0 font-weight-bold text-grey">Course Duration</h6>
+                            <h4 class="text-dark">6 months</h4>
                         </div>
                     </div>
 
                     <!-- Content Row -->
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-                   
-
-                        <div class="col-lg-6 ucardinfo mb-4">
-
-
-
-                        </div>
-                    </div>
-
-                </div>
+                   </div>
                 <!-- /.container-fluid -->
 
             </div>
