@@ -12,6 +12,11 @@ app.use(express.static(path.join(__dirname, '../')))
 app.use(express.urlencoded({extended:true}))
 app.use(session({secret:'asecret' }));
 
+app.use((req,res,next)=>{
+    console.log(req.body,req.sessionID);
+    next();
+})
+
 // console.log(process.env.HOST,process.env.MYSQL_USER,process.env.PASSWORD,process.env.DATABASE);
 const db = mysql.createConnection({
     // host:process.env.HOST,
@@ -33,15 +38,12 @@ console.log('Connected to the MySQL server.');
 
 
 //home page routes
-// app.get("/",(req,res)=>
-// {
-//     // path.join(__dirname, '/index.html')
-// //   res.sendFile("../login.html",{root:__dirname});
-// //   res.sendFile(__dirname+'/../index.html');
-// //   res.sendFile(path.resolve('../index.html'));
-//   res.sendFile('register.html');
+app.get("/",(req,res)=>
+{
 
-// });
+  res.sendFile('register.html',{root:__dirname+'/../'});
+
+});
 
 
 app.get("/login",(req,res)=>
@@ -52,8 +54,7 @@ app.get("/login",(req,res)=>
 
 app.get("/register",(req,res)=>
 {
-    //   res.sendFile("../register.html",{root:__dirname});
-      res.sendFile('register.html',{root:__dirname+'/../'});
+    res.sendFile('register.html',{root:__dirname+'/../'});
 });
 
 
@@ -72,18 +73,6 @@ app.post('/register',async(req,res)=>{
     const {username,password}=req.body;
     const hash=await bcrypt.hash(password,12);
 
-    const values=[username,hash];
-    const query="INSERT INTO auth(`user_name`,`user_password`) values (?,?)"//change the table name,column name as per requirement
-    db.query(query,values,(err,result)=>{
-        if(err)
-        {
-            console.log(err);
-            res.send(err);
-        }
-        console.log('insert result:',result);
-    })
-
-
     const query2="SELECT id from auth where user_name=?"//change the table name,column name as per requirement
 
     db.query(query2,username,(err,result)=>{
@@ -93,12 +82,28 @@ app.post('/register',async(req,res)=>{
             res.send(err);
             // return err;
         }
-        // req.session.user_id=result[0].id;
-        // return result[0].id;
+        if(result.length!=0)
+        {
+            console.log('Username already exists');
+            res.redirect('/register');
+        }
+        else{
+            const values=[username,hash];
+
+            const query="INSERT INTO auth(`user_name`,`user_password`) values (?,?)"//change the table name,column name as per requirement
+            db.query(query,values,(err,result)=>{
+                if(err)
+                {
+                    console.log(err);
+                    // res.sendFile('register.html',{root:__dirname+'/../'});
+                    res.redirect('/register')
+                }
+                console.log('Account created for ',username);
+                // console.log('insert result:',result);
+                res.redirect('/login')
+            })
+        }
     })
-    req.session.user_id=1;
-    // console.log('reg:',req.session.user_id);
-    res.sendStatus(200);
 })
 
 
@@ -111,51 +116,52 @@ app.post('/login',async(req,res)=>{
         if(err)
         {
             console.log(err);
-            res.sendStatus(404);
+            res.redirect('/login');
+            // res.sendStatus(404);
         }
 
-
-        var userId=result[0].id || 0;
-        var passwordhash=result[0].user_password || "";
-
-        if(!userId){
-            res.send('WRONG USERNAME OR PASSWORD');
+        if(result.length==0)
+        {
+            console.log('WRONG USERNAME OR PASSWORD');
+            res.redirect('/login')
         }
         else{
-            const validuser=await bcrypt.compare(password,passwordhash);
-            if(validuser)
-            {
-                req.session.user_id=userId;
-                // res.redirect('/secret');
-                res.sendStatus(200);
-            }
-            else{
-                res.sendStatus(400);
-                // res.send('WRONG USERNAME OR PASSWORD');
+            var userId=result[0].id || 0;
+            var passwordhash=result[0].user_password || "";
+                const validuser=await bcrypt.compare(password,passwordhash);
+                if(validuser)
+                {
+                    req.session.user_id=userId;
+                    console.log('innn valid');
+                    res.redirect('/dashboard')
+                }
+                else{
+                    console.log('WRONG USERNAME OR PASSWORD');
+                    res.redirect('/login')
+                }
             }
         }
-    })
-
-
-})
+    )
+});
 
 app.post('/logout',(req,res)=>{
     req.session.user_id=null;
-    // res.redirect('/login');
-    res.sendStatus(200);
+    console.log('LOGGED OUT SUCCESSFULLY');
+    res.redirect('/login');
+    // res.sendStatus(200);
 })
 
 app.get('/dashboard',(req,res)=>{
-    console.log("dash",req.session.user_id);
     if(!req.session.user_id){
-        res.sendStatus(400);
+        console.log('NOT LOGGED IN');
+        res.redirect('/login');
     }
     else{
 
-        // res.sendStatus(200);
+        res.sendFile('dashboard.html',{root:__dirname+'/../'})
     }
 })
 
-app.listen(8888,()=>{
+app.listen(8880,()=>{
     console.log('SESSION HEARING..');
 })
