@@ -17,16 +17,15 @@ app.use((req,res,next)=>{
     next();
 })
 
-// console.log(process.env.HOST,process.env.MYSQL_USER,process.env.PASSWORD,process.env.DATABASE);
 const db = mysql.createConnection({
     // host:process.env.HOST,
     // user:process.env.MYSQL_USER,
     // password:process.env.PASSWORD,
     // database:process.env.DATABASE
-    host:'localhost',
-    user:'root',
-    password:'rootpass',
-    database:'toptrove'
+    host:'',
+    user:'',
+    password:'',
+    database:''
 })//fill it up
 
 db.connect(function(err) {
@@ -95,11 +94,9 @@ app.post('/register',async(req,res)=>{
                 if(err)
                 {
                     console.log(err);
-                    // res.sendFile('register.html',{root:__dirname+'/../'});
                     res.redirect('/register')
                 }
                 console.log('Account created for ',username);
-                // console.log('insert result:',result);
                 res.redirect('/login')
             })
         }
@@ -148,7 +145,6 @@ app.post('/logout',(req,res)=>{
     req.session.user_id=null;
     console.log('LOGGED OUT SUCCESSFULLY');
     res.redirect('/login');
-    // res.sendStatus(200);
 })
 
 app.get('/dashboard',(req,res)=>{
