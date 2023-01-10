@@ -22,10 +22,10 @@ const db = mysql.createConnection({
     // user:process.env.MYSQL_USER,
     // password:process.env.PASSWORD,
     // database:process.env.DATABASE
-    host:'',
-    user:'',
-    password:'',
-    database:''
+    host:'localhost',
+    user:'root',
+    password:'rootpass',
+    database:'toptrove'
 })//fill it up
 
 db.connect(function(err) {
