@@ -3,12 +3,13 @@ const app=express();
 const bcrypt=require('bcrypt');
 const session=require('express-session');
 const mysql=require('mysql2');
-var path = require('path');
+const path = require('path');
+const cors=require('cors')
 require('dotenv').config({path:'.././.env'});
 
 
 app.use(express.static(path.join(__dirname, '../')))
-
+app.use(cors());
 app.use(express.urlencoded({extended:true}))
 app.use(session({secret:'asecret' }));
 
@@ -24,8 +25,8 @@ const db = mysql.createConnection({
     // database:process.env.DATABASE
     host:'localhost',
     user:'root',
-    password:'',
-    database:''
+    password:'rootpass',
+    database:'toptrove'
 })//fill it up
 
 db.connect(function(err) {
@@ -148,6 +149,7 @@ app.post('/logout',(req,res)=>{
 })
 
 app.get('/dashboard',(req,res)=>{
+    console.log('asking permision..');
     if(!req.session.user_id){
         console.log('NOT LOGGED IN');
         res.redirect('/login');
