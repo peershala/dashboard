@@ -21,15 +21,15 @@ ex:
 
 in html:
 
-<a href="/dashboard2">
+    <a href="/dashboard2">
     <span>NEW DASHBOARD</span>
-</a>
+    </a>
 
 
 in node js add this route :
 
-app.get("/dashboard2",(req,res)=>
-{
-    res.sendFile('dashboard2.html',{root:__dirname+'/../client/pages'});
-});
+    app.get("/dashboard2",(req,res)=>
+    {
+        res.sendFile('dashboard2.html',{root:__dirname+'/../client/pages'});
+    });
 .
