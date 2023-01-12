@@ -41,31 +41,31 @@ console.log('Connected to the MySQL server.');
 app.get("/",(req,res)=>
 {
 
-  res.sendFile('register.html',{root:__dirname+'/../client'});
+  res.sendFile('register.html',{root:__dirname+'/../client/pages'});
 
 });
 
 
 app.get("/login",(req,res)=>
 {
-  res.sendFile('login.html',{root:__dirname+'/../client'});
+  res.sendFile('login.html',{root:__dirname+'/../client/pages'});
 });
 
 
 app.get("/register",(req,res)=>
 {
-    res.sendFile('register.html',{root:__dirname+'/../client'});
+    res.sendFile('register.html',{root:__dirname+'/../client/pages'});
 });
 
 
 app.get("/aboutus",(req,res)=>
 {
-    res.sendFile('aboutus.html',{root:__dirname+'/../client'});
+    res.sendFile('aboutus.html',{root:__dirname+'/../client/pages'});
 });
 
 app.get("/achievement",(req,res)=>
 {
-      res.sendFile('achievement.html',{root:__dirname+'/../client'});
+      res.sendFile('achievement.html',{root:__dirname+'/../client/pages'});
 });
 
 app.post('/register',async(req,res)=>{
@@ -156,7 +156,20 @@ app.get('/dashboard',(req,res)=>{
     }
     else{
 
-        res.sendFile('dashboard.html',{root:__dirname+'/../client/'})
+        res.sendFile('dashboard.html',{root:__dirname+'/../client/pages'})
+    }
+})
+
+app.get('/*.html',(req,res,next)=>{
+    console.log('in html questioning');
+    if(!req.session.user_id){
+        console.log('NOT LOGGED IN');
+        res.redirect('/login');
+    }
+    else{
+        console.log('going nextttt');
+        next();
+        // res.sendFile('dashboard.html',{root:__dirname+'/../client/pages'})
     }
 })
 

@@ -12,18 +12,45 @@
     <title>GreenBhumi- Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/green.css">
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../css/green.css">
 </head>
 
 <body id="page-top">
+    <!-- <script type="text/javascript">
 
+        async function handlelogout()
+        {
+            // e.preventDefault();
+            let options = {
+            method: 'POST',
+            mode:'cors',
+            headers: {
+                'Content-Type': 
+                    'application/json;charset=utf-8'
+            }
+            }
+            console.log('inside handler..');
+            await fetch("http://localhost:8880/logout").then(response => {
+            return response.json();
+                }).then(data => {
+                // Work with JSON data here
+                console.log(data);
+                }).catch(err => {
+                    console.log(err);
+                // Do something for an error here
+            });
+
+        }
+
+
+    </script> -->
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -35,7 +62,7 @@
 
             <!-- Divider -->
            
-            <a class="sidebar-brand d-flex align-items-center justify-content-center " href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center " href="dashboard.html">
                 <div class="sidebar-brand-icon sidebar-logo ">
                     <img src="img/plogo2.png" alt="" style="width:14rem;">
                 </div>
@@ -45,13 +72,13 @@
           <ul id="side-nav">
            
             <li class="side-list-it ">
-                <a href="index.html">
+                <a href="#">
                 <i class="fas fa-user"></i>
                 <span>My Profile</span></a>
                </li>
     
                <li class="side-list-it">
-                <a href="#">
+                <a href="aboutus.html">
                 <i class="fas fa-users"></i>
                 <span>My Team</span></a>
                </li>
@@ -63,8 +90,9 @@
                </li>
     
                <li class="side-list-it">
-                <a href="#"  data-toggle="modal" data-target="#logoutModal">
+                <a href="#" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-fw fa-sign-out-alt"></i>
+                <!-- <span>Log-Out</span></a> -->
                 <span>Log-Out</span></a>
                </li>
           </ul>
@@ -80,9 +108,6 @@
             <!-- Main Content -->
             <div id="content">
 
-               
-
-                   
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -113,36 +138,30 @@
            
 
                     <!-- Content Row -->
-                    <div class="row col-12 container " id="harsh" style="text-align:center">
-        
-                        <div class="card col-3 mx-3 mt-5" >
-                            <img src="./img/unlock.png" style="height:50px; width:50px;margin:auto" class="card-img-top mt-3" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title">Offer Letter</h5>
-                              <p class="card-text">Please download your Offer Letter from here</p>
-                              <button class="btn btn-primary">Download</button>
-                            </div>
-                          </div>
-                    
-                          <div class="card col-3 mx-3 mt-5" >
-                            <img src="./assets/images/lock.png" style="height:50px; width:50px;margin:auto" class="card-img-top mt-3" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title">Internship Completion Certificate</h5>
-                              <p class="card-text">Please download your Internship Completion Certificate from here</p>
-                              <button class="btn btn-primary">Download</button>
-                            </div>
-                          </div>
-                    
-                          <div class="card col-3 mx-3 mt-5" >
-                            <img src="./assets/images/lock.png" style="height:50px; width:50px;margin:auto" class="card-img-top mt-3" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title">Letter Of Recommendation</h5>
-                              <p class="card-text">Please download your Letter Of Recommendation from here</p>
-                              <button class="btn btn-primary">Download</button>
-                            </div>
-                          </div>
-                    
+                    <div class="row card-row-cont">
+
+                    <div class="card shadow mb-4 intern-info-cards">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-grey">Name</h6>
+                            <h4 class="text-dark">Vinay Chitade</h4>
+                            <h6 class="m-0 font-weight-bold text-grey">Email</h6>
+                            <h4 class="text-dark">Vinay@sociovative.org</h4>
+                            <h6 class="m-0 font-weight-bold text-gery">College Name</h6>
+                            <h4 class="text-dark">Rajarshi Shahu Mahavidyalaya</h4>
                         </div>
+                    </div>
+
+                    <div class="card shadow mb-4 intern-info-cards">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-grey">Mentor Name</h6>
+                            <h4 class="text-dark">Sudip das</h4>
+                            <h6 class="m-0 font-weight-bold text-grey">Course Name</h6>
+                            <h4 class="text-dark">web intern</h4>
+                            <h6 class="m-0 font-weight-bold text-grey">Course Duration</h6>
+                            <h4 class="text-dark">6 months</h4>
+                        </div>
+                    </div>
+
                     <!-- Content Row -->
                    </div>
                 <!-- /.container-fluid -->
@@ -183,10 +202,15 @@
                     </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
+                <form action="http://localhost:8880/logout" method="post">
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <input type="submit" value="Logout" class="btn btn-primary" >
+                        <!-- <a class="btn btn-primary" href="login.html" onclick="handlelogout()">Logout</a> -->
+                    </div>
+
+                </form>
+
             </div>
         </div>
     </div>
