@@ -3,12 +3,13 @@ const app=express();
 const bcrypt=require('bcrypt');
 const session=require('express-session');
 const mysql=require('mysql2');
-var path = require('path');
+const path = require('path');
+const cors=require('cors')
 require('dotenv').config({path:'.././.env'});
 
 
-app.use(express.static(path.join(__dirname, '../')))
-
+app.use(express.static(path.join(__dirname, '../client')))
+app.use(cors());
 app.use(express.urlencoded({extended:true}))
 app.use(session({secret:'asecret' }));
 
@@ -28,6 +29,8 @@ const db = mysql.createConnection({
     database:''
 })//fill it up
 
+
+
 db.connect(function(err) {
 if (err) {
     return console.error('error: ' + err.message);
@@ -40,31 +43,43 @@ console.log('Connected to the MySQL server.');
 app.get("/",(req,res)=>
 {
 
-  res.sendFile('register.html',{root:__dirname+'/../'});
+  res.sendFile('register.html',{root:__dirname+'/../client/pages'});
 
 });
 
 
 app.get("/login",(req,res)=>
 {
-  res.sendFile('login.html',{root:__dirname+'/../'});
+  res.sendFile('login.html',{root:__dirname+'/../client/pages'});
 });
 
 
 app.get("/register",(req,res)=>
 {
-    res.sendFile('register.html',{root:__dirname+'/../'});
+    res.sendFile('register.html',{root:__dirname+'/../client/pages'});
+});
+
+app.get("/forgot-password",(req,res)=>
+{
+    res.sendFile('forgot-password.html',{root:__dirname+'/../client/pages'});
 });
 
 
 app.get("/aboutus",(req,res)=>
 {
-    res.sendFile('aboutus.html',{root:__dirname+'/../'});
+    res.sendFile('aboutus.html',{root:__dirname+'/../client/pages'});
 });
 
 app.get("/achievement",(req,res)=>
 {
-      res.sendFile('achievement.html',{root:__dirname+'/../'});
+    console.log('asking  achievement permision..');
+    if(!req.session.user_id){
+        console.log('NOT LOGGED IN');
+        res.redirect('/login');
+    }
+    else{
+        res.sendFile('achievement.html',{root:__dirname+'/../client/pages'});
+    }
 });
 
 app.post('/register',async(req,res)=>{
@@ -148,14 +163,20 @@ app.post('/logout',(req,res)=>{
 })
 
 app.get('/dashboard',(req,res)=>{
+    console.log('asking permision..');
     if(!req.session.user_id){
         console.log('NOT LOGGED IN');
         res.redirect('/login');
     }
     else{
 
-        res.sendFile('dashboard.html',{root:__dirname+'/../'})
+        res.sendFile('dashboard.html',{root:__dirname+'/../client/pages'})
     }
+})
+
+
+app.get('*',(req,res)=>{
+    res.redirect('/login');
 })
 
 app.listen(8880,()=>{
