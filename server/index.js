@@ -8,7 +8,7 @@ const cors=require('cors')
 require('dotenv').config({path:'.././.env'});
 
 
-app.use(express.static(path.join(__dirname, '../')))
+app.use(express.static(path.join(__dirname, '../client')))
 app.use(cors());
 app.use(express.urlencoded({extended:true}))
 app.use(session({secret:'asecret' }));
@@ -41,31 +41,31 @@ console.log('Connected to the MySQL server.');
 app.get("/",(req,res)=>
 {
 
-  res.sendFile('register.html',{root:__dirname+'/../'});
+  res.sendFile('register.html',{root:__dirname+'/../client'});
 
 });
 
 
 app.get("/login",(req,res)=>
 {
-  res.sendFile('login.html',{root:__dirname+'/../'});
+  res.sendFile('login.html',{root:__dirname+'/../client'});
 });
 
 
 app.get("/register",(req,res)=>
 {
-    res.sendFile('register.html',{root:__dirname+'/../'});
+    res.sendFile('register.html',{root:__dirname+'/../client'});
 });
 
 
 app.get("/aboutus",(req,res)=>
 {
-    res.sendFile('aboutus.html',{root:__dirname+'/../'});
+    res.sendFile('aboutus.html',{root:__dirname+'/../client'});
 });
 
 app.get("/achievement",(req,res)=>
 {
-      res.sendFile('achievement.html',{root:__dirname+'/../'});
+      res.sendFile('achievement.html',{root:__dirname+'/../client'});
 });
 
 app.post('/register',async(req,res)=>{
@@ -156,8 +156,12 @@ app.get('/dashboard',(req,res)=>{
     }
     else{
 
-        res.sendFile('dashboard.html',{root:__dirname+'/../'})
+        res.sendFile('dashboard.html',{root:__dirname+'/../client/'})
     }
+})
+
+app.get('*',(req,res)=>{
+    res.redirect('/login');
 })
 
 app.listen(8880,()=>{
