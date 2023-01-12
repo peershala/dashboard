@@ -57,6 +57,11 @@ app.get("/register",(req,res)=>
     res.sendFile('register.html',{root:__dirname+'/../client/pages'});
 });
 
+app.get("/forgot-password",(req,res)=>
+{
+    res.sendFile('forgot-password.html',{root:__dirname+'/../client/pages'});
+});
+
 
 app.get("/aboutus",(req,res)=>
 {
@@ -65,7 +70,14 @@ app.get("/aboutus",(req,res)=>
 
 app.get("/achievement",(req,res)=>
 {
-      res.sendFile('achievement.html',{root:__dirname+'/../client/pages'});
+    console.log('asking  achievement permision..');
+    if(!req.session.user_id){
+        console.log('NOT LOGGED IN');
+        res.redirect('/login');
+    }
+    else{
+        res.sendFile('achievement.html',{root:__dirname+'/../client/pages'});
+    }
 });
 
 app.post('/register',async(req,res)=>{
