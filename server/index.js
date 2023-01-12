@@ -160,18 +160,6 @@ app.get('/dashboard',(req,res)=>{
     }
 })
 
-app.get('/*.html',(req,res,next)=>{
-    console.log('in html questioning');
-    if(!req.session.user_id){
-        console.log('NOT LOGGED IN');
-        res.redirect('/login');
-    }
-    else{
-        console.log('going nextttt');
-        next();
-        // res.sendFile('dashboard.html',{root:__dirname+'/../client/pages'})
-    }
-})
 
 app.get('*',(req,res)=>{
     res.redirect('/login');

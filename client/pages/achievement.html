@@ -35,7 +35,7 @@
 
             <!-- Divider -->
            
-            <a class="sidebar-brand d-flex align-items-center justify-content-center " href="dashboard.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center " href="/dashboard">
                 <div class="sidebar-brand-icon sidebar-logo ">
                     <img src="img/plogo2.png" alt="" style="width:14rem;">
                 </div>
@@ -45,19 +45,19 @@
           <ul id="side-nav">
            
             <li class="side-list-it ">
-                <a href="dashboard.html">
+                <a href="/dashboard">
                 <i class="fas fa-user"></i>
                 <span>My Profile</span></a>
                </li>
     
                <li class="side-list-it">
-                <a href="aboutus.html">
+                <a href="/aboutus">
                 <i class="fas fa-users"></i>
                 <span>My Team</span></a>
                </li>
     
                <li class="side-list-it">
-                <a href="achievement.html">
+                <a href="/achievement">
                 <i class="fas fa-trophy"></i>
                 <span>Achivement</span></a>
                </li>
@@ -183,10 +183,17 @@
                     </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
+
+                <form action="http://localhost:8880/logout" method="post">
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <input type="submit" value="Logout" class="btn btn-primary" >
+                        <!-- <a class="btn btn-primary" href="login.html" onclick="handlelogout()">Logout</a> -->
+                    </div>
+
+                </form>
+
+
             </div>
         </div>
     </div>
