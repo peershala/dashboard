@@ -1,19 +1,19 @@
 # Tips before starting the server
 ## run this in command line: 
-cd server<br>
+cd main<br>
 npm init -y<br>
 npm i<br>
 npm i bcrypt express cors dotenv express-session mysql2 path
 
 ## to run the server:
-cd server<br>
+cd main<br>
 node index.js or nodemon index.js
 
 
 
 # things to note for developers:
 1.While registering the user the first name and last name is not stored in database, just username and password is used.
-Developers could further enchance by adding  this username and password to database and use it.<br>
+Developers could further enchance by adding  this firstname and lastname to database and use it.<br>
 2.In further development when a user adds new route ex: dashboard2.html in one of existing pages, it cannot navigate to the new page
 that is 'dashboard2.html', since there is only navigation which has end points in node js .
 So therefore add an endpoint in node js  using express js, to get this html file rendered for a particular route,
