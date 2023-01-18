@@ -11,9 +11,7 @@ node index.js or nodemon index.js
 
 
 # things to note for developers:
-1.While registering the user the first name and last name is not stored in database, just username and password is used.
-Developers could further enchance by adding  this firstname and lastname to database and use it.<br>
-2.In further development when a user adds new route ex: dashboard2.html in one of existing pages, it cannot navigate to the new page
+In further development when a user adds new route ex: dashboard2.html in one of existing pages, it cannot navigate to the new page
 that is 'dashboard2.html', since there is only navigation which has end points in node js .
 So therefore add an endpoint in node js  using express js, to get this html file rendered for a particular route,
 ex:
