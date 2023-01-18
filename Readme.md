@@ -1,6 +1,5 @@
 # Tips before starting the server
 ## run this in command line: 
-cd main<br>
 npm init -y<br>
 npm i<br>
 npm i bcrypt express cors dotenv express-session mysql2 path
