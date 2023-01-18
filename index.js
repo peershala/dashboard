@@ -8,8 +8,8 @@ const cors=require('cors')
 // require('dotenv').config({path:'.././.env'});
 
 
-// app.use(express.static(path.join(__dirname, '/client')))
-app.use(express.static('client/'))
+app.use(express.static(path.join(__dirname, '/client')))
+// app.use(express.static('client'))
 app.use(cors());
 app.use(express.urlencoded({extended:true}))
 app.use(session({secret:'asecret' }));
