@@ -1,12 +1,11 @@
 # Tips before starting the server
 ## run this in command line: 
-npm init -y<br>
 npm i<br>
 npm i bcrypt express cors dotenv express-session mysql2 path
 
 ## to run the server:
-cd main<br>
-node index.js or nodemon index.js
+
+node index.js or nodemon index.js or npm start
 
 
 
