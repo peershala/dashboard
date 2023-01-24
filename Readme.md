@@ -1,4 +1,4 @@
-https://toptrove-dashboard-dmu4g9yef-realvineeths.vercel.app/ (just static page)
+https://toptrove-dashboard.vercel.app/ 
 
 # Tips before starting the server
 ## run this in command line: 
