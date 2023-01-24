@@ -2,7 +2,6 @@ https://toptrove-dashboard-dmu4g9yef-realvineeths.vercel.app/ (just static page)
 
 # Tips before starting the server
 ## run this in command line: 
-npm i<br>
 npm i bcrypt express cors dotenv express-session mysql2 path
 
 ## to run the server:
