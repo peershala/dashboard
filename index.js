@@ -12,7 +12,15 @@ app.use(express.static(path.join(__dirname, '/client')))
 // app.use(express.static('client'))
 app.use(cors());
 app.use(express.urlencoded({extended:true}))
-app.use(session({secret:'asecret' }));
+app.set('trust proxy', 1);
+app.use(session({
+    cookie:{
+        secure: true
+    },
+    secret:'asecret',
+    saveUninitialized: true,
+    resave: false
+}));
 
 app.use((req,res,next)=>{
     console.log(req.body,req.sessionID);
