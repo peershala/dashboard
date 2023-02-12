@@ -30,10 +30,10 @@ const db = mysql.createConnection({
     // user:process.env.MYSQL_USER,
     // password:process.env.PASSWORD,
     // database:process.env.DATABASE
-    host:'',
-    user:'',
-    password:'',
-    database:''
+    host:'database-1.cz4k2aulzdrl.ap-south-1.rds.amazonaws.com',
+    user:'admin',
+    password:'rootpass',
+    database:'toptrove'
 })//fill it up
 
 
