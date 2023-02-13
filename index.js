@@ -5,6 +5,7 @@ const session=require('express-session');
 const mysql=require('mysql2');
 const path = require('path');
 const cors=require('cors')
+const filestore = require("session-file-store")(session)
 // require('dotenv').config({path:'.././.env'});
 
 
@@ -12,7 +13,12 @@ app.use(express.static(path.join(__dirname, '/client')))
 // app.use(express.static('client'))
 app.use(cors());
 app.use(express.urlencoded({extended:true}))
-app.use(session({secret:'asecret' }));
+app.use(session({
+    secret:'asecret',
+    saveUninitialized: true,
+    resave: false,
+    store: new filestore()
+}));
 
 app.use((req,res,next)=>{
     console.log(req.body,req.sessionID);
