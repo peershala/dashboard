@@ -6,11 +6,9 @@ const mysql=require('mysql2');
 const path = require('path');
 const cors=require('cors')
 const filestore = require("session-file-store")(session)
-// require('dotenv').config({path:'.././.env'});
-
+require('dotenv').config();
 
 app.use(express.static(path.join(__dirname, '/client')))
-// app.use(express.static('client'))
 app.use(cors());
 app.use(express.urlencoded({extended:true}))
 app.use(session({
@@ -26,16 +24,11 @@ app.use((req,res,next)=>{
 })
 
 const db = mysql.createConnection({
-    // host:process.env.HOST,
-    // user:process.env.MYSQL_USER,
-    // password:process.env.PASSWORD,
-    // database:process.env.DATABASE
-    host:'',
-    user:'',
-    password:'',
-    database:''
+    host:process.env.HOST,
+    user:process.env.MYSQL_USER,
+    password:process.env.PASSWORD,
+    database:process.env.DATABASE
 })//fill it up
-
 
 
 db.connect(function(err) {
