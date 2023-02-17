@@ -68,3 +68,54 @@ a{
 #side-nav{
     margin-top: 4rem !important;
 }
+/* Card responsiveness*/
+.centered {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+}
+.container {
+    position: relative;
+    text-align: center;
+    
+}
+@media (max-width: 508px) {
+.btnres{
+height: 5vh;
+width:30vw;
+font-size: 15px;
+}
+.card_query{
+    height:55vh!important;
+    width:50vw!important;
+    font-size: 15px;
+}
+.banner-txt{
+    font-size: 15px!important;
+
+}
+.centered {
+   
+    top: 10%;
+}
+    /* image responsiveness*/
+.img_Res{
+height: 40vh !important;
+    width: 66vw !important;
+}
+.img_Res2 {
+    height: 20vh !important;
+    width: 60vw !important;
+}
+
+}
+ @media only screen and (max-width: 870px) and (min-width: 509px) {
+
+    .banner-txt {
+        font-size: 18px !important;
+
+    }
+
+
+}
